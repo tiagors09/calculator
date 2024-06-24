@@ -3,56 +3,111 @@ import 'package:calculator/components/button_row.dart';
 import 'package:flutter/material.dart';
 
 class Keyboard extends StatelessWidget {
-  const Keyboard({super.key});
+  final void Function(String) cb;
+
+  const Keyboard({
+    super.key,
+    required this.cb,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       height: 500,
       child: Column(
         children: [
           ButtonRow(
             buttons: [
-              Button(
+              Button.big(
                 text: 'AC',
-                big: true,
+                color: Button.DARK,
+                cb: cb,
               ),
-              Button(text: '%'),
-              Button(text: '/'),
-            ],
-          ),
-          ButtonRow(
-            buttons: [
-              Button(text: '7'),
-              Button(text: '8'),
-              Button(text: '9'),
-              Button(text: 'x'),
-            ],
-          ),
-          ButtonRow(
-            buttons: [
-              Button(text: '4'),
-              Button(text: '5'),
-              Button(text: '6'),
-              Button(text: '-'),
-            ],
-          ),
-          ButtonRow(
-            buttons: [
-              Button(text: '1'),
-              Button(text: '2'),
-              Button(text: '3'),
-              Button(text: '+'),
+              Button(
+                text: '%',
+                color: Button.DARK,
+                cb: cb,
+              ),
+              Button.operation(
+                text: '/',
+                cb: cb,
+              ),
             ],
           ),
           ButtonRow(
             buttons: [
               Button(
-                text: '0',
-                big: true,
+                text: '7',
+                cb: cb,
               ),
-              Button(text: ','),
-              Button(text: '='),
+              Button(
+                text: '8',
+                cb: cb,
+              ),
+              Button(
+                text: '9',
+                cb: cb,
+              ),
+              Button.operation(
+                text: 'x',
+                cb: cb,
+              ),
+            ],
+          ),
+          ButtonRow(
+            buttons: [
+              Button(
+                text: '4',
+                cb: cb,
+              ),
+              Button(
+                text: '5',
+                cb: cb,
+              ),
+              Button(
+                text: '6',
+                cb: cb,
+              ),
+              Button.operation(
+                text: '-',
+                cb: cb,
+              ),
+            ],
+          ),
+          ButtonRow(
+            buttons: [
+              Button(
+                text: '1',
+                cb: cb,
+              ),
+              Button(
+                text: '2',
+                cb: cb,
+              ),
+              Button(
+                text: '3',
+                cb: cb,
+              ),
+              Button.operation(
+                text: '+',
+                cb: cb,
+              ),
+            ],
+          ),
+          ButtonRow(
+            buttons: [
+              Button.big(
+                text: '0',
+                cb: cb,
+              ),
+              Button(
+                text: '.',
+                cb: cb,
+              ),
+              Button.operation(
+                text: '=',
+                cb: cb,
+              ),
             ],
           ),
         ],
